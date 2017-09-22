@@ -19,4 +19,12 @@ CREATE TABLE `t_user` (
 -- ----------------------------  
 -- Records of t_user  
 -- ----------------------------  
-INSERT INTO `t_user` VALUES ('1', 'user', '123', '男');  
+INSERT INTO `t_user` VALUES ('1', 'user', '123', '男');
+
+CREATE TABLE `pic` (
+  `id` bigint(20) NOT NULL,
+  `belong` bigint(20) NOT NULL COMMENT '所属id',
+  `picname` varchar(255) NOT NULL COMMENT '图片原名',
+  `url` varchar(255) NOT NULL COMMENT '存储地址',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
