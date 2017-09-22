@@ -2,61 +2,50 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Test</title>
+    <title>yihan</title>
+    <style>
+        #background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: -1;
+        }
+
+        #content{
+            z-index: 1;
+            position: fixed;
+            margin-left:50%;
+            width:300px;
+            left:-150px;
+            top:150px;
+            text-align: center;
+        }
+
+        .menu{
+            display: block;
+            font-family: "Consolas";
+            font-size: 25px;
+            letter-spacing: 5px;
+            color:#FF00FE;
+            font-weight:bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <script type="text/javascript" src="plugs/js/jquery-1.7.2.js"></script>
 
 <body>
-<c:forEach begin="1" end="10">
-    <div class="cal">
-11111111111111111111111111111111111111
-    </div>
-</c:forEach>
-
-<div>
-    <button onclick="res()">提交答案</button>
+<img id="background" src="static/img/background.png">
+<div id="content">
+    <span class="menu" onclick="ToPhoto()">李薏菡的小照片</span>
+    <span class="menu">算术题目</span>
 </div>
 </body>
 <script>
-    var total=0;
-    $('.cal').each(function (index, value) {
-        var span=$('<span></span>');
-        var one = Math.round(Math.random() * 10);
-        var two = Math.round(Math.random() * 100);
-        span.html(one + '+' + two + '=');
-        $(this).append(span);
-        var input = $('<input type="text" class="res">')
-        $(this).append(input)
-    })
-
-    $('.res').blur(function(){
-        var x=$(this).prev().html();
-        var y=x.substring(0,x.length-1);
-        var arr=y.split("+");
-        var r=parseInt(arr[0])+parseInt(arr[1]);
-        var z=$(this).val();
-        if(r==z){
-            total++;
-        }else{
-            $(this).attr('aaa','bbb');
-        }
-        $(this).attr('disabled','disabled');
-    })
-
-    function res(){
-//        alert(1111111)
-        if(total==10){
-            alert(total+'分，终于成功毕业了')
-        }else if(total>=9&&total<10){
-            alert(total+'分，快毕业了')
-        }else if(total>6&&total<9){
-            alert(total+'分，还是不及格')
-        }else{
-            alert(total+'分，笨老太婆')
-        }
-
-        $('input[aaa=bbb]').css('border','1px solid red');
+    function ToPhoto(){
+        location.href="view/toPhoto";
     }
-
 </script>
 </html>
